@@ -1,26 +1,54 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import ZipSearch from './ZipSearch';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      zipcodes: []
+    }
+  }
+
+  searchZip = (e) => {
+    e.preventDefault();
+    let userInput = e.target[0].value;
+    console.log(userInput);
+
+    axios.get('http://ctp-zip-api.herokuapp.com/zip/' + userInput)
+      .then((resolve) => {
+        this.setState({ zipcodes: resolve.data });
+        console.log(resolve.data);
+      })
+      .catch((err) => console.log(err));
+
+  }
+
+
+  render() {
+    let elements = [];
+    elements = this.state.zipcodes.map((element, i) => <ZipSearch key={i} {...element} />)
+    return (
+      <div className="content">
+        <form onSubmit={this.searchZip}>
+          <h1 className="title">Zip Code Search</h1>
+          <p className="search">Zip Search: <input type="text" /></p>
+        </form>
+
+        {elements}
+      </div>
+    );
+
+  }
+
+
 }
+
 
 export default App;
