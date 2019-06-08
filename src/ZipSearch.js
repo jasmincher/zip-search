@@ -2,7 +2,6 @@
 import React from 'react';
 
 
-
 class ZipSearch extends React.Component {
     render() {
         return (

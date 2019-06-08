@@ -50,3 +50,8 @@ input{
 .info{
   padding: 10px;
 }
+
+.no-results{
+  text-align: center;
+  margin-top: 50px;
+}

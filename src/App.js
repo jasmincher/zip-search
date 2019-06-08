@@ -5,14 +5,14 @@ import ZipSearch from './ZipSearch';
 
 
 
-
 class App extends React.Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      zipcodes: []
+      zipcodes: [],
+      found: false 
     }
   }
 
@@ -23,24 +23,35 @@ class App extends React.Component {
 
     axios.get('http://ctp-zip-api.herokuapp.com/zip/' + userInput)
       .then((resolve) => {
-        this.setState({ zipcodes: resolve.data });
-        console.log(resolve.data);
+        this.setState({ zipcodes: resolve.data, found: true }); 
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        this.setState({ found: false });
+           
+      });
+
+  
+
 
   }
 
 
   render() {
     let elements = [];
-    elements = this.state.zipcodes.map((element, i) => <ZipSearch key={i} {...element} />)
+
+    if (this.state.found)
+      elements = this.state.zipcodes.map((element, i) => <ZipSearch key={i} {...element} />)
+    else
+      elements = <h2 className="no-results">No results</h2>
+
+
     return (
       <div className="content">
         <form onSubmit={this.searchZip}>
-         
+
           <h1 className="title">Zip Code Search</h1>
           <p className="search">Zip Search: <input type="text" placeholder="Enter Zip Code" /> <button onClick="{this.searchZip}"> Search</button></p>
-          
+
         </form>
 
         {elements}
