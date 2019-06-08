@@ -21,7 +21,7 @@ class App extends React.Component {
     let userInput = e.target[0].value;
     console.log(userInput);
 
-    axios.get('http://ctp-zip-api.herokuapp.com/zip/' + userInput)
+    axios.get('https://ctp-zip-api.herokuapp.com/zip/' + userInput)
       .then((resolve) => {
         this.setState({ zipcodes: resolve.data, found: true }); 
       })
