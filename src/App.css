@@ -30,6 +30,7 @@ body{
   border: black 1px solid;
   margin: 50px auto 30px auto;
   border-radius: 5px;
+  box-shadow: 5px 5px rgb(180, 180, 180);
 }
 
 .search{
@@ -40,6 +41,7 @@ body{
 
 input{
   border: black .1px solid;
+  padding-left: 5px;
 }
 
 .info{

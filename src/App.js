@@ -39,7 +39,7 @@ class App extends React.Component {
         <form onSubmit={this.searchZip}>
          
           <h1 className="title">Zip Code Search</h1>
-          <p className="search">Zip Search: <input type="text" placeholder="      Enter Zip Code" /> <button onClick="{this.searchZip}"> Search</button></p>
+          <p className="search">Zip Search: <input type="text" placeholder="Enter Zip Code" /> <button onClick="{this.searchZip}"> Search</button></p>
           
         </form>
 
