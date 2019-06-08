@@ -12,7 +12,7 @@ class App extends React.Component {
 
     this.state = {
       zipcodes: [],
-      found: false 
+      found: false
     }
   }
 
@@ -23,14 +23,14 @@ class App extends React.Component {
 
     axios.get('https://ctp-zip-api.herokuapp.com/zip/' + userInput)
       .then((resolve) => {
-        this.setState({ zipcodes: resolve.data, found: true }); 
+        this.setState({ zipcodes: resolve.data, found: true });
       })
       .catch((err) => {
         this.setState({ found: false });
-           
+
       });
 
-  
+
 
 
   }
@@ -48,8 +48,8 @@ class App extends React.Component {
     return (
       <div className="content">
         <form onSubmit={this.searchZip}>
-
           <h1 className="title">Zip Code Search</h1>
+
           <p className="search">Zip Search: <input type="text" placeholder="Enter Zip Code" /> <button onClick="{this.searchZip}"> Search</button></p>
 
         </form>
