@@ -1,36 +1,39 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
+@import url('https://fonts.googleapis.com/css?family=La+Belle+Aurore&display=swap');
 
-body{
-  font-family: 'Quicksand', sans-serif;
+ body{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
 }
 
 .App {
   text-align: center;
-  width: 350px; 
-
 }
 
 .title{
-  background-color: rgb(201, 192, 200);
+  background-image: linear-gradient(-45deg, rgb(220, 202, 221), rgb(243, 247, 247));
   padding: 20px;
   text-align: center;
+  font-family: 'La Belle Aurore', cursive;
+  font-size: 50px;
 }
 
 .city{
-  background-color: rgb(218, 211, 211);
+  background-image: linear-gradient(180deg, rgba(230, 230, 230, 0.918), rgba(247, 247, 247, 0.945));
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   padding: 7px;
+  border-bottom: 1px black solid;
   
 }
 
 .results{
-  width: 350px;
+  width: 450px;
   border: black 1px solid;
   margin: 50px auto 30px auto;
   border-radius: 5px;
-  box-shadow: 5px 5px rgb(180, 180, 180);
+  box-shadow: 8px 8px 8px rgb(180, 180, 180);
 }
 
 .search{
@@ -40,7 +43,7 @@ body{
 }
 
 input{
-  border: black .1px solid;
+  border: black 1px solid;
   padding-left: 5px;
 }
 
